@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Katja Schütz | Junior Software Developer (Fachinformatiker für Anwendungsentwicklung, IHK)</title>
+<meta name="description" content="Portfolio of Katja Schütz, IHK-certified application developer (Fachinformatiker für Anwendungsentwicklung) seeking a junior software developer position. Game development, JavaScript, procedural generation.">
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+</head>
+<body>
+<!--
+  Bilingual pattern: every text exists twice in the HTML, once with lang="en" and once with lang="de".
+  CSS shows only the active language. Crawlers and ATS tools that do not run JavaScript still see both.
+-->
+<div class="layout">
+
+<header class="side">
+  <div class="lang" role="group" aria-label="Language / Sprache">
+    <button type="button" data-set="en" aria-pressed="true">EN</button>
+    <button type="button" data-set="de" aria-pressed="false">DE</button>
+  </div>
+  <h1>Katja<br>Schütz</h1>
+  <p class="role" lang="en">Junior Software Developer<br>Application Development (IHK)</p>
+  <p class="role" lang="de">Junior Softwareentwicklerin<br>Anwendungsentwicklung (IHK)</p>
+  <nav aria-label="Sections">
+    <a href="#profile"><span lang="en">Profile</span><span lang="de">Profil</span></a>
+    <a href="#projects"><span lang="en">Projects</span><span lang="de">Projekte</span></a>
+    <a href="#skills"><span lang="en">Skills</span><span lang="de">Kompetenzen</span></a>
+    <a href="#interests"><span lang="en">Interests</span><span lang="de">Interessen</span></a>
+    <a href="#contact"><span lang="en">Contact</span><span lang="de">Kontakt</span></a>
+  </nav>
+</header>
+
+<main>
+<section id="profile">
+  <h2 lang="en">Profile</h2><h2 lang="de">Profil</h2>
+  <p lang="en">I am a <strong>Fachinformatiker für Anwendungsentwicklung</strong> (IHK-certified application developer, Germany) looking for a <strong>junior software developer</strong> position. My strongest project so far is a complete turn-based roguelite game with procedural room generation, custom event-driven systems and iterative playtesting.</p>
+  <p lang="de">Ich bin <strong>Fachinformatiker für Anwendungsentwicklung</strong> (IHK) und suche eine Stelle als <strong>Junior Softwareentwicklerin</strong>. Mein bisher größtes Projekt ist ein vollständiges rundenbasiertes Roguelite mit prozeduraler Raumgenerierung, eigenen ereignisgesteuerten Systemen und iterativem Playtesting.</p>
+</section>
+
+<section id="projects">
+  <h2 lang="en">Projects</h2><h2 lang="de">Projekte</h2>
+
+  <!-- PROJECT TEMPLATE: copy one whole <article>, paste it at the top of this section, edit both languages.
+       Status classes: done | wip | soon -->
+  <article class="project soon">
+    <h3 lang="en">Story-driven game (working title)</h3><h3 lang="de">Story-orientiertes Spiel (Arbeitstitel)</h3>
+    <p class="status" lang="en">Coming soon</p><p class="status" lang="de">Demnächst</p>
+    <p lang="en">Currently exploring JavaScript and Ruby as the foundation for a narrative-focused game, moving from engine-based event scripting towards code-first development.</p>
+    <p lang="de">Aktuell erkunde ich JavaScript und Ruby als Grundlage für ein erzählerisch ausgerichtetes Spiel und wechsle damit von engine-basiertem Event-Scripting zu code-basierter Entwicklung.</p>
+    <p class="tags">JavaScript, Ruby</p>
+  </article>
+
+  <article class="project done">
+    <h3>Unwavering Wraith</h3>
+    <p class="status" lang="en">Released on itch.io</p><p class="status" lang="de">Veröffentlicht auf itch.io</p>
+    <p lang="en">Turn-based, Final Fantasy-inspired roguelite across 100 floors, built in RPG Maker. The engine supplies the editor and battle framework; the systems below are my own work.</p>
+    <p lang="de">Rundenbasiertes, von Final Fantasy inspiriertes Roguelite über 100 Etagen, entwickelt in RPG Maker. Die Engine liefert Editor und Kampfrahmen; die folgenden Systeme stammen von mir.</p>
+    <ul lang="en">
+      <li><strong>Procedural generation:</strong> RNG decides furniture placement, room type (fight, loot, event) and encounter rarity and difficulty, scaling with progress.</li>
+      <li><strong>Roguelite loop:</strong> a global reset routine clears all persistent items and switches and restores the character.</li>
+      <li><strong>Event-driven item and skill system:</strong> all effect logic is custom, using listener hooks that fire conditionally during combat or rooms, with manual state and variable management.</li>
+      <li><strong>Balancing:</strong> values tuned through iterative playtesting with friends instead of automated tools.</li>
+      <li><strong>Narrative and documentation:</strong> cutscenes, characters, hub, and an in-game dev room documenting design pillars, take-aways and compromises.</li>
+    </ul>
+    <ul lang="de">
+      <li><strong>Prozedurale Generierung:</strong> Zufallslogik bestimmt Möbelplatzierung, Raumtyp (Kampf, Beute, Ereignis) sowie Seltenheit und Schwierigkeit der Begegnung, skalierend mit dem Fortschritt.</li>
+      <li><strong>Roguelite-Schleife:</strong> Eine globale Reset-Routine löscht alle persistenten Gegenstände und Schalter und setzt den Charakter zurück.</li>
+      <li><strong>Ereignisgesteuertes Item- und Skill-System:</strong> Sämtliche Effektlogik ist selbst geschrieben, mit Listener-Hooks, die bedingt im Kampf oder in Räumen ausgelöst werden, inklusive manueller Zustands- und Variablenverwaltung.</li>
+      <li><strong>Balancing:</strong> Werte durch iteratives Playtesting mit Freunden statt mit automatischen Tools abgestimmt.</li>
+      <li><strong>Story und Dokumentation:</strong> Zwischensequenzen, Charaktere, Hub und ein Entwicklerraum im Spiel, der Design-Grundsätze, Erkenntnisse und Kompromisse dokumentiert.</li>
+    </ul>
+    <details>
+      <summary lang="en">Engine limitations and my workarounds</summary>
+      <summary lang="de">Engine-Grenzen und meine Lösungswege</summary>
+      <ul lang="en">
+        <li>No loops or abstraction: repeated operations are hardcoded; loops were built with label and jump commands.</li>
+        <li>Conditional branches cannot be collapsed, which made the encounter-generation events hard to navigate.</li>
+        <li>Static database entries: enemy stats per difficulty were adjusted through status effects.</li>
+        <li>No debugger: variables were displayed through a temporary NPC and a text box before each playtest.</li>
+      </ul>
+      <ul lang="de">
+        <li>Keine Schleifen oder Abstraktion: Wiederholte Abläufe sind fest kodiert; Schleifen wurden mit Label- und Sprungbefehlen umgesetzt.</li>
+        <li>Bedingte Verzweigungen lassen sich nicht einklappen, was die Events zur Begegnungsgenerierung schwer navigierbar machte.</li>
+        <li>Statische Datenbankeinträge: Gegnerwerte je Schwierigkeit wurden über Statuseffekte angepasst.</li>
+        <li>Kein Debugger: Variablen wurden vor jedem Playtest über einen temporären NPC und eine Textbox angezeigt.</li>
+      </ul>
+    </details>
+    <p class="tags">Game logic, Procedural generation, Event-driven design, State management, Playtesting, Documentation</p>
+    <p><a href="https://teaquest-sagas.itch.io/unwavering-wraith" rel="noopener"><span lang="en">Play on itch.io</span><span lang="de">Auf itch.io spielen</span></a></p>
+  </article>
+</section>
+
+<section id="skills">
+  <h2 lang="en">Skills</h2><h2 lang="de">Kompetenzen</h2>
+  <dl>
+    <dt lang="en">Learns fast</dt><dt lang="de">Lernt schnell</dt>
+    <dd lang="en">I get productive in new tools and languages quickly, currently JavaScript and Ruby.</dd>
+    <dd lang="de">Ich arbeite mich schnell in neue Werkzeuge und Sprachen ein, aktuell JavaScript und Ruby.</dd>
+    <dt lang="en">Curious</dt><dt lang="de">Neugierig</dt>
+    <dd lang="en">I look into how things work underneath, and where a system's limits lie.</dd>
+    <dd lang="de">Ich schaue, wie Dinge darunter funktionieren und wo die Grenzen eines Systems liegen.</dd>
+    <dt lang="en">Self-directed</dt><dt lang="de">Selbstständig</dt>
+    <dd lang="en">I plan, build, test and document projects on my own, from idea to release.</dd>
+    <dd lang="de">Ich plane, entwickle, teste und dokumentiere Projekte eigenständig, von der Idee bis zur Veröffentlichung.</dd>
+    <dt lang="en">Communicates clearly</dt><dt lang="de">Kommuniziert klar</dt>
+    <dd lang="en">Moving often while growing up taught me to adapt to new people and settings. A university course in another field adds a different way of approaching problems.</dd>
+    <dd lang="de">Häufige Umzüge in meiner Kindheit haben mich gelehrt, mich auf neue Menschen und Umgebungen einzustellen. Ein Studium in einem anderen Fach bringt eine zusätzliche Perspektive auf Problemlösung mit.</dd>
+  </dl>
+</section>
+
+<section id="interests">
+  <h2 lang="en">Interests</h2><h2 lang="de">Interessen</h2>
+  <p lang="en">Gaming, and helpful or creative local applications, including browser-based tools. I am also drawn to applied areas such as robotics and botany, wherever software has a practical or creative use.</p>
+  <p lang="de">Gaming sowie hilfreiche oder kreative lokale Anwendungen, auch browserbasierte Tools. Außerdem reizen mich angewandte Felder wie Robotik und Botanik, überall dort, wo Software einen praktischen oder kreativen Nutzen hat.</p>
+</section>
+
+<section id="contact">
+  <h2 lang="en">Contact</h2><h2 lang="de">Kontakt</h2>
+  <p lang="en">Contact details, certificates and references are included in my application email.</p>
+  <p lang="de">Kontaktdaten, Zeugnisse und Referenzen finden Sie in meiner Bewerbungs-E-Mail.</p>
+  <p><a href="https://github.com/teacodequest" rel="noopener">GitHub</a></p>
+</section>
+</main>
+</div>
+</body>
+</html>
